@@ -29,6 +29,20 @@ entries:
     urls:
     - https://github.com/thmb/helm/releases/download/nfsserver-0.1.2/nfsserver-0.1.2.tgz
     version: 0.1.2
+  - apiVersion: v2
+    appVersion: 2.6.2
+    created: "2023-09-18T17:28:58.343965139Z"
+    description: NFS Server Helm Chart for Kubernetes
+    digest: e7bde5a39ef23e20c9d4289da6d8668da463859eb81e9af2f48fcbd77eabffd4
+    icon: icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: nfsserver
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/nfsserver-0.1.0/nfsserver-0.1.0.tgz
+    version: 0.1.0
   postgresql:
   - apiVersion: v2
     appVersion: "16.0"
@@ -58,4 +72,18 @@ entries:
     urls:
     - https://github.com/thmb/helm/releases/download/postgresql-0.3.2/postgresql-0.3.2.tgz
     version: 0.3.2
-generated: "2023-09-18T17:19:52.979051438Z"
+  - apiVersion: v2
+    appVersion: "16.0"
+    created: "2023-09-18T17:28:58.464073546Z"
+    description: PostgreSQL Helm Chart for Kubernetes
+    digest: 43167578f5c1a2f279ceae52457eb1bba5a4d39a425d559e17f27484916e13a1
+    icon: icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: postgresql
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/postgresql-0.1.0/postgresql-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-09-18T17:28:58.464254346Z"
