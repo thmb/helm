@@ -1,10 +1,10 @@
 apiVersion: v2
 name: postgresql
 type: application
-version: 0.3.0 # chart version
+version: 0.3.1 # chart version
 appVersion: "16.0" # bundle version
 description: PostgreSQL Helm chart for Kubernetes
 icon: icon.svg
 maintainers:
-  - email: thiago@thau.tech
-    name: Thiago Madureira Braga
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
