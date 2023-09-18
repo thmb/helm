@@ -41,4 +41,3 @@ jobs:
                   CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
                   CR_PACKAGES_WITH_INDEX: true
                   CR_INDEX_PATH: "docs"
-                  CR_PACKAGE_PATH: "docs"
