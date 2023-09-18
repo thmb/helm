@@ -2,7 +2,7 @@ replicas: 1
 
 image:
     repository: postgres
-    tag: "15.4"
+    tag: "16.0"
 
 database:
     name: test
