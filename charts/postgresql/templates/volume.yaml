@@ -7,9 +7,9 @@ metadata:
         type: local
 spec:
     storageClassName: manual
-    capacity:
-        storage: 8G
     accessModes:
         - ReadWriteMany
+    capacity:
+        storage: 8G
     hostPath:
         path: "/opt/kubernetes/{{ .Release.Name }}/data"
