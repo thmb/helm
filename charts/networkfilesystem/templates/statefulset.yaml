@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+    name: {{ .Release.Name }}-statefulset
+spec:
+    serviceName: "network-file-system"
+    replicas: 1
+    selector:
+        matchLabels:
+            app: networkfilesystem
+    template:
+        metadata:
+            labels:
+                app: networkfilesystem
+        spec:
+            containers:
+                - name: {{ .Release.Name }}-container
+                  image: k8s.gcr.io/volume-nfs:0.8
+                  securityContext:
+                      privileged: true
+                  volumeMounts:
+                      - name: exports
+                        mountPath: /exports
+                  ports:
+                      - name: nfs
+                        containerPort: 2049
+                      #   - name: mountd
+                      #       containerPort: 20048
+                      #   - name: rpcbind
+                      #       containerPort: 111
+            # volumes:
+            #     - name: exports
+            #       persistentVolumeClaim:
+            #           claimName: {{ .Release.Name }}-claim
+    volumeClaimTemplates:
+        - metadata:
+              name: exports
+          spec:
+              accessModes: [ "ReadWriteOnce" ]
+              storageClassName: {{ .Release.Name }}-claim
+              resources:
+                  requests:
+                      storage: 10G

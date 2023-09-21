@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: {{ .Release.Name }}-claim
+    labels:
+        app: networkfilesystem
+spec:
+    storageClassName: manual
+    accessModes:
+        - ReadWriteMany
+    resources:
+        requests:
+            storage: 10G

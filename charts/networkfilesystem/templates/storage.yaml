@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+    name: {{ .Release.Name }}-storage
+provisioner: nfs.csi.k8s.io
+allowVolumeExpansion: true
+reclaimPolicy: Retain
+parameters:
+    server: {{ .Release.Name }}-service.{{ .Release.Namespace }}.svc.cluster.local
+    share: / # references the /exports internal server folder as root directory

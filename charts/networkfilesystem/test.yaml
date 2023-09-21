@@ -1,0 +1,37 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: nfs-pvc-pod
+spec:
+    containers:
+        - name: busybox
+          image: busybox
+          resources:
+              requests: # usual resources
+                  cpu: "10m" # 1% of cpu core
+                  memory: "64M" # 64MB of RAM
+              limits: # max resources
+                  cpu: "100m" # 10% of cpu core
+                  memory: "256M" # 256MB of RAM
+          command:
+              - sleep
+              - "3600"
+          volumeMounts:
+              - name: nfs-data
+                mountPath: /nfs/data
+    volumes:
+        - name: nfs-data
+          persistentVolumeClaim:
+              claimName: nfs-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: nfs-pvc
+spec:
+    storageClassName: nfs-storage # use storage class name
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 1G

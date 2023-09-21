@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: {{ .Release.Name }}-service
+spec:
+    type: ClusterIP # default and internal service type
+    clusterIP: {{ .Values.service.address }} # static internal address
+    selector:
+        app: networkfilesystem
+    ports:
+        - name: nfs
+          port: 2049
