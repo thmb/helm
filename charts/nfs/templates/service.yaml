@@ -6,7 +6,7 @@ spec:
   type: ClusterIP # default and internal service type
   clusterIP: {{ .Values.service.address }} # static internal address
   selector:
-    app: networkfilesystem
+    app: nfs
   ports:
     - name: nfs
       port: 2049

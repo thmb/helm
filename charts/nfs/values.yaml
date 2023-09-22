@@ -1,2 +1,6 @@
+image:
+  repository: k8s.gcr.io/volume-nfs
+  tag: 0.8
+
 service:
   address: 10.100.10.101

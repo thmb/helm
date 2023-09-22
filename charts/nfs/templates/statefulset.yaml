@@ -7,15 +7,22 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: networkfilesystem
+      app: nfs
   template:
     metadata:
       labels:
-        app: networkfilesystem
+        app: nfs
     spec:
       containers:
         - name: {{ .Release.Name }}-container
-          image: k8s.gcr.io/volume-nfs:0.8
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests: # usual resources
+              cpu: "500m" # half of cpu core
+              memory: "512M" # 512MB of RAM
+            limits: # max resources
+              cpu: "1" # one cpu core
+              memory: "1G" # 1GB of RAM
           securityContext:
             privileged: true
           volumeMounts:
@@ -32,8 +39,8 @@ spec:
     - metadata:
         name: exports
       spec:
-        accessModes: [ "ReadWriteOnce" ]
-        storageClassName: {{ .Release.Name }}-claim
+        storageClassName: {{ .Release.Name }}-storage
+        accessModes: [ "ReadWriteMany" ]
         resources:
           requests:
             storage: 10G

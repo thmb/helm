@@ -3,12 +3,12 @@ kind: PersistentVolume
 metadata:
   name: {{ .Release.Name }}-volume
   labels:
-    app: nfs
+    app: postgres
 spec:
   storageClassName: manual
   accessModes: [ "ReadWriteMany" ]
   capacity:
-    storage: 10G
+    storage: 1G
   hostPath:
     path: /opt/kubernetes/{{ .Release.Name }}/volume
     type: DirectoryOrCreate # create if not exist

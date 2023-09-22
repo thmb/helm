@@ -1,0 +1,9 @@
+image:
+  repository: postgres
+  tag: "16.0"
+
+database:
+  name: test
+
+storage:
+  class: manual # change to use nfs or other external

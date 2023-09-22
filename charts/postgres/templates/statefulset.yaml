@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}-statefulset
+  labels:
+    app: postgres
+spec:
+  serviceName: "postgres-database"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-container
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests: # usual resources
+              cpu: "500m" # half of cpu core
+              memory: "512M" # 512MB of RAM
+            limits: # max resources
+              cpu: "1" # one cpu core
+              memory: "1G" # 1GB of RAM
+          volumeMounts:
+            - name: var-lib-postgres-data # external volume
+              mountPath: /var/lib/postgres/data # internal volume
+          ports:
+            - containerPort: 5432 # expose port
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-configmap
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: password
+  volumeClaimTemplates:
+    - metadata:
+        name: var-lib-postgres-data
+      spec:
+        storageClassName: {{ .Values.storage.class }}
+        accessModes: [ "ReadWriteMany" ]
+        resources:
+          requests:
+            storage: 1G
