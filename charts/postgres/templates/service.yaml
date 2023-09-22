@@ -5,8 +5,8 @@ metadata:
   labels:
     app: postgres
 spec:
-  ports:
-    - port: 5432
+  type: NodePort # TODO: remove and change to ClusterIP (default)
   selector:
     app: postgres
-  type: NodePort # TODO: remove and change to ClusterIP (default)
+  ports:
+    - port: 5432

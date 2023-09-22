@@ -28,8 +28,8 @@ spec:
           volumeMounts:
             - name: var-lib-postgres-data # external volume
               mountPath: /var/lib/postgres/data # internal volume
-          ports:
-            - containerPort: 5432 # expose port
+          # ports:
+          #   - containerPort: 5432 # expose port
           envFrom:
             - configMapRef:
                 name: {{ .Release.Name }}-configmap
