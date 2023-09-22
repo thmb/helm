@@ -1,5 +1,35 @@
 apiVersion: v1
 entries:
+  minio:
+  - apiVersion: v2
+    appVersion: RELEASE.2023-09-20T22-49-55Z
+    created: "2023-09-22T17:46:51.610223545Z"
+    description: MinIO Object Storage
+    digest: d12947ad4123b064a7c63f9474a82e39cc77a8f0becd49c4f55c0665d762a597
+    icon: https://github.com/thmb/helm/blob/main/charts/minio/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: minio
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/minio-0.1.0/minio-0.1.0.tgz
+    version: 0.1.0
+  nfs:
+  - apiVersion: v2
+    appVersion: 2.6.2
+    created: "2023-09-22T17:46:51.741973094Z"
+    description: Network File System
+    digest: 61dd3fdb8c8608e9a77f490e9acc0fe94f9adfed02b69c51f4b1c65090e5d3a9
+    icon: https://github.com/thmb/helm/blob/main/charts/nfs/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: nfs
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/nfs-0.1.0/nfs-0.1.0.tgz
+    version: 0.1.0
   nfsserver:
   - apiVersion: v2
     appVersion: 2.6.2
@@ -42,6 +72,21 @@ entries:
     type: application
     urls:
     - https://github.com/thmb/helm/releases/download/nfsserver-0.1.0/nfsserver-0.1.0.tgz
+    version: 0.1.0
+  postgres:
+  - apiVersion: v2
+    appVersion: "16.0"
+    created: "2023-09-22T17:46:51.909169109Z"
+    description: PostgreSQL Database
+    digest: bf924490706c665906e154d80cd0e508a841c4aac86c4965248979764ff22fc9
+    icon: https://github.com/thmb/helm/blob/main/charts/postgres/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: postgres
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/postgres-0.1.0/postgres-0.1.0.tgz
     version: 0.1.0
   postgresql:
   - apiVersion: v2
@@ -86,4 +131,4 @@ entries:
     urls:
     - https://github.com/thmb/helm/releases/download/postgresql-0.1.0/postgresql-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-18T17:28:58.464254346Z"
+generated: "2023-09-22T17:46:51.909232309Z"
