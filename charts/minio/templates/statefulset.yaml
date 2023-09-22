@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}-statefulset
+  labels:
+    app: minio
+spec:
+  serviceName: "minio-storage"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-container
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests: # usual resources
+              cpu: "500m" # half of cpu core
+              memory: "512M" # 512MB of RAM
+            limits: # max resources
+              cpu: "1" # one cpu core
+              memory: "1G" # 1GB of RAM
+          command:
+            - /bin/bash
+            - -c
+          args:
+            - minio server /var/lib/minio/data --console-address :9090
+          # command: [minio, server, /var/lib/minio/data, --console-address, ":9090"]
+          volumeMounts:
+            - name: var-lib-minio-data # external volume
+              mountPath: /var/lib/minio/data # internal volume
+  volumeClaimTemplates:
+    - metadata:
+        name: var-lib-minio-data
+      spec:
+        storageClassName: {{ .Values.storage.class }}
+        accessModes: [ "ReadWriteMany" ]
+        resources:
+          requests:
+            storage: 1G
