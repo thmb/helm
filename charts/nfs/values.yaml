@@ -3,4 +3,4 @@ image:
   tag: 0.8
 
 service:
-  address: 10.100.10.101
+  address: 10.100.10.100
