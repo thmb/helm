@@ -5,5 +5,9 @@ image:
 storage:
   class: manual # change to use nfs or other external
 
+authentication:
+  username: user
+  password: secret
+
 database:
   name: test
