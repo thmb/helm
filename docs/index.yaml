@@ -73,6 +73,21 @@ entries:
     urls:
     - https://github.com/thmb/helm/releases/download/nfsserver-0.1.0/nfsserver-0.1.0.tgz
     version: 0.1.0
+  pgadmin:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-09-25T17:28:47.692725832Z"
+    description: PostfreSQL Admin Webapp
+    digest: 5281eb0806a48e4699a7dbf1253377a5779fa7764c93f565a32a3028119618ee
+    icon: https://github.com/thmb/helm/blob/main/charts/pgadmin/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
+    version: 0.1.0
   postgres:
   - apiVersion: v2
     appVersion: "16.0"
@@ -131,4 +146,4 @@ entries:
     urls:
     - https://github.com/thmb/helm/releases/download/postgresql-0.1.0/postgresql-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-22T17:46:51.909232309Z"
+generated: "2023-09-25T17:28:48.069379726Z"
