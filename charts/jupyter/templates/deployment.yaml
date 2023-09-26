@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  labels:
+    app: jupyter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jupyter
+  template:
+    metadata:
+      labels:
+        app: jupyter
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-container
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests: # usual resources
+              cpu: "1" # 1 cpu core
+              memory: "4G" # 4 GB of RAM
+            limits: # max resources
+              cpu: "2" # 2 cpu cores
+              memory: "8G" # 8 GB of RAM
+          volumeMounts:
+            - name: home-jovyan-work # external volume
+              mountPath: /home/jovyan/work # internal volume
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-configmap
+          env:
+            - name: JUPYTER_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: token
+      volumes:
+        - name: home-jovyan-work
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-claim
