@@ -2,14 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Release.Name }}-ingress
-  # annotations:
-  #   nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "pgadmin.local"
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - path: /
+      - path: {{ .Values.ingress.path }}
         pathType: Prefix
         backend:
           service:

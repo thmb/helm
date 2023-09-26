@@ -5,8 +5,12 @@ image:
 storage:
   class: manual # change to use nfs or other external
 
-authentication:
-  username: user@email.com
+ingress:
+  host: pgadmin.minikube
+  path: /
+
+auth:
+  email: user@email.com
   password: secret
 
 log:
