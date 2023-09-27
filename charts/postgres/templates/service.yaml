@@ -1,12 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-service
-  labels:
-    app: postgres
+  name: {{ .Release.Name }}-admin
 spec:
-  type: NodePort # TODO: remove and change to ClusterIP (default)
   selector:
-    app: postgres
+    app: admin
+  ports:
+    - port: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-database
+spec:
+  selector:
+    app: database
   ports:
     - port: 5432

@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: {{ .Release.Name }}
   labels:
-    app: pgadmin
+    app: admin
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pgadmin
+      app: admin
   template:
     metadata:
       labels:
-        app: pgadmin
+        app: admin
     spec:
       initContainers:
-        - name: {{ .Release.Name }}-container-init
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        - name: {{ .Release.Name }}-init
+          image: {{ .Values.admin.image }}
           command: ["/bin/chown", "-R", "5050:5050", "/var/lib/pgadmin"] # change owner
           securityContext:
             runAsUser: 0 # root
@@ -24,33 +24,33 @@ spec:
             - name: var-lib-pgadmin
               mountPath: /var/lib/pgadmin
       containers:
-        - name: {{ .Release.Name }}-container
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        - name: {{ .Release.Name }}-main
+          image: {{ .Values.admin.image }}
           resources:
-            requests: # usual resources
-              cpu: "500m" # half of cpu core
-              memory: "512M" # 512MB of RAM
-            limits: # max resources
-              cpu: "1" # one cpu core
-              memory: "1G" # 1GB of RAM
+            requests: # minimum
+              cpu: "500m"
+              memory: "512M"
+            limits: # maximum
+              cpu: "1"
+              memory: "1G"
           volumeMounts:
             - name: var-lib-pgadmin # external volume
               mountPath: /var/lib/pgadmin # internal volume
           envFrom:
             - configMapRef:
-                name: {{ .Release.Name }}-configmap
+                name: {{ .Release.Name }}
           env:
             - name: PGADMIN_DEFAULT_EMAIL
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-secret
-                  key: email
+                  name: {{ .Release.Name }}
+                  key: ADMIN_EMAIL
             - name: PGADMIN_DEFAULT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-secret
-                  key: password
+                  name: {{ .Release.Name }}
+                  key: ADMIN_PASSWORD
       volumes:
         - name: var-lib-pgadmin
           persistentVolumeClaim:
-            claimName: {{ .Release.Name }}-claim
+            claimName: {{ .Release.Name }}-admin

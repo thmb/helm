@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-admin
+spec:
+  storageClassName: {{ .Values.admin.storage }}
+  accessModes: [ "ReadWriteMany" ]
+  resources:
+      requests:
+          storage: 1G
+  selector:
+    matchLabels:
+      app: admin

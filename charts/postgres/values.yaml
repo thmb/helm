@@ -1,13 +1,20 @@
-image:
-  repository: postgres
-  tag: "16.0"
-
-storage:
-  class: manual # change to use nfs or other external
-
-authentication:
-  username: user
-  password: secret
+admin:
+  image: dpage/pgadmin4:latest
+  storage: manual # class
+  auth:
+    email: user@email.com
+    password: secret
+  host:
+    name: postgres.minikube
+    path: /
+  log:
+    level: 10
 
 database:
-  name: test
+  image: postgres:16.0
+  storage: manual # class
+  auth:
+    user: user
+    password: secret
+  default:
+    name: test

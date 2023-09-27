@@ -2,8 +2,8 @@ apiVersion: v2
 name: postgres
 type: application
 version: 0.1.0 # chart version
-appVersion: "16.0" # bundle version
-description: PostgreSQL Database Server
+appVersion: "16.0 / latest" # bundle version
+description: PostgreSQL and PgAdmin
 icon: https://github.com/thmb/helm/blob/main/charts/postgres/icon.svg
 maintainers:
   - email: thiago@thau.tech
