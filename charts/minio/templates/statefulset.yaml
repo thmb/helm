@@ -1,44 +1,50 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ .Release.Name }}-statefulset
+  name: {{ .Release.Name }}
   labels:
-    app: minio
+    app: storage
 spec:
   serviceName: "minio-storage"
   replicas: 1
   selector:
     matchLabels:
-      app: minio
+      app: storage
   template:
     metadata:
       labels:
-        app: minio
+        app: storage
     spec:
       containers:
-        - name: {{ .Release.Name }}-container
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image }}
           resources:
-            requests: # usual resources
-              cpu: "500m" # half of cpu core
-              memory: "512M" # 512MB of RAM
-            limits: # max resources
-              cpu: "1" # one cpu core
-              memory: "1G" # 1GB of RAM
-          command:
-            - /bin/bash
-            - -c
-          args:
-            - minio server /var/lib/minio/data --console-address :9090
-          # command: [minio, server, /var/lib/minio/data, --console-address, ":9090"]
+            requests: # minimum
+              cpu: "500m"
+              memory: "512M"
+            limits: # maximum
+              cpu: "1"
+              memory: "1G"
+          command: [minio, server, /var/lib/minio/data, --console-address, ":9090"]
           volumeMounts:
             - name: var-lib-minio-data # external volume
               mountPath: /var/lib/minio/data # internal volume
+          env:
+            - name: MINIO_ROOT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}
+                  key: USER
+            - name: MINIO_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}
+                  key: PASSWORD
   volumeClaimTemplates:
     - metadata:
         name: var-lib-minio-data
       spec:
-        storageClassName: {{ .Values.storage.class }}
+        storageClassName: {{ .Values.storage }}
         accessModes: [ "ReadWriteMany" ]
         resources:
           requests:

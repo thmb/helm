@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-service
+  name: {{ .Release.Name }}
   labels:
-    app: minio
+    app: storage
 spec:
   selector:
-    app: minio
+    app: storage
   ports:
     - name: api
       port: 9000

@@ -1,6 +1,7 @@
-image:
-  repository: quay.io/minio/minio
-  tag: RELEASE.2023-09-20T22-49-55Z
+image: minio/minio:latest
 
-storage:
-  class: manual # change to use nfs or other external
+storage: manual # change to use nfs or other external
+
+auth:
+  user: user
+  password: Pa$$w0rD
