@@ -1,0 +1,63 @@
+apiVersion: v1
+entries:
+  jupyter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-09-28T19:05:39.395550558Z"
+    description: PySpark Jupyter Notebook
+    digest: de74c15970b3c2fc865e1dccaf4fc82bf0391784a144ebcfb505d52f649b439b
+    icon: https://github.com/thmb/helm/blob/main/charts/jupyter/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/jupyter-2023.09.28/jupyter-2023.09.28.tgz
+    version: 2023.09.28
+  minio:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-09-28T19:05:39.687730379Z"
+    description: MinIO Object Storage
+    digest: 1e352a72e9be1ca88bb06c46fcaad049a9a3535ea9b7e7c1365418934d37dae1
+    icon: https://github.com/thmb/helm/blob/main/charts/minio/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: minio
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/minio-2023.09.28/minio-2023.09.28.tgz
+    version: 2023.09.28
+  nfs:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-09-28T19:05:39.91307897Z"
+    description: Network File System
+    digest: 790fce7cf6316da984a4acd70597ceee2d4d4f6ff15511704266b69c1d96fd3a
+    icon: https://github.com/thmb/helm/blob/main/charts/nfs/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: nfs
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/nfs-2023.09.28/nfs-2023.09.28.tgz
+    version: 2023.09.28
+  postgres:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-09-28T19:05:40.236826316Z"
+    description: PostgreSQL and PgAdmin
+    digest: af3ba4b78147a5a46f4a1033c73f3e23dc29f1f80b032c7e3356d58990091f85
+    icon: https://github.com/thmb/helm/blob/main/charts/postgres/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: postgres
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/postgres-2023.09.28/postgres-2023.09.28.tgz
+    version: 2023.09.28
+generated: "2023-09-28T19:05:40.236839017Z"
