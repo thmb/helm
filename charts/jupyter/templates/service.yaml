@@ -1,12 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-service
-  labels:
-    app: jupyter
+  name: {{ .Release.Name }}
 spec:
   selector:
-    app: jupyter
+    app: compute
   ports:
     - name: lab
       port: 8888

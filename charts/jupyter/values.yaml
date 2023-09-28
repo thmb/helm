@@ -1,13 +1,7 @@
-image:
-  repository: jupyter/pyspark-notebook
-  tag: latest
-
-storage:
-  class: manual # change to use nfs or other external
-
-ingress:
-  host: jupyter.minikube
-  path: /
-
+image: jupyter/pyspark-notebook:latest
+storage: manual # change to use nfs or other external
 auth:
   token: secret
+host:
+  name: jupyter.minikube
+  path: /
