@@ -6,10 +6,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "minio.minikube"
+  - host: {{ .Values.host.name }}
     http:
       paths:
-      - path: /
+      - path: {{ .Values.host.path }}
         pathType: Prefix
         backend:
           service:
