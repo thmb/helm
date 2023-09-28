@@ -1,5 +1,5 @@
 image: minio/minio:latest
-storage: manual # change to use nfs or other external
+storage: standard # default class
 auth:
   user: user
   password: Pa$$w0rD

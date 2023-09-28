@@ -1,5 +1,5 @@
 image: jupyter/pyspark-notebook:latest
-storage: manual # change to use nfs or other external
+storage: standard # default class
 auth:
   token: secret
 host:

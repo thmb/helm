@@ -1,6 +1,6 @@
 admin:
   image: dpage/pgadmin4:latest
-  storage: manual # class
+  storage: standard # default class
   auth:
     email: user@email.com
     password: secret
@@ -11,8 +11,8 @@ admin:
     level: 10
 
 database:
-  image: postgres:16.0
-  storage: manual # class
+  image: postgres:latest
+  storage: standard # default class
   auth:
     user: user
     password: secret

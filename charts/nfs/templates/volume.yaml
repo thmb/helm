@@ -5,7 +5,7 @@ metadata:
   labels:
     app: server
 spec:
-  storageClassName: manual # default storage
+  storageClassName: standard # default storage
   persistentVolumeReclaimPolicy: Retain
   accessModes: [ "ReadWriteMany" ]
   capacity:
