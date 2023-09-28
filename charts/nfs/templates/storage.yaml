@@ -1,10 +1,23 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: {{ .Release.Name }}-storage
+  name: {{ .Release.Name }}-retain
 provisioner: nfs.csi.k8s.io
-allowVolumeExpansion: true
+# allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer # Immediate
 reclaimPolicy: Retain
 parameters:
-  server: {{ .Release.Name }}-service.{{ .Release.Namespace }}.svc.cluster.local
-  share: / # references the /exports internal server folder as root directory
+  server: {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local
+  share: / # references the /exports internal server root directory
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: {{ .Release.Name }}-delete
+provisioner: nfs.csi.k8s.io
+# allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer # Immediate
+reclaimPolicy: Delete
+parameters:
+  server: {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local
+  share: / # references the /exports internal server root directory

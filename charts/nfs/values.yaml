@@ -1,6 +1,5 @@
-image:
-  repository: k8s.gcr.io/volume-nfs
-  tag: 0.8
+image: k8s.gcr.io/volume-nfs:0.8
 
-service:
-  address: 10.100.10.100
+storage: manual # class
+
+address: 10.96.10.10

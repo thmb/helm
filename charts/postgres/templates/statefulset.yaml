@@ -5,7 +5,7 @@ metadata:
   labels:
     app: database
 spec:
-  serviceName: "postgresql"
+  serviceName: "postgresql-database"
   replicas: 1
   selector:
     matchLabels:

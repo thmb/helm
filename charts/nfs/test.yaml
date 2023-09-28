@@ -1,16 +1,16 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: nfs-pvc-pod
+  name: test-client
 spec:
   containers:
     - name: busybox
       image: busybox
       resources:
-        requests: # usual resources
+        requests: # minimum
           cpu: "10m" # 1% of cpu core
           memory: "64M" # 64MB of RAM
-        limits: # max resources
+        limits: # maximum
           cpu: "100m" # 10% of cpu core
           memory: "256M" # 256MB of RAM
       command:
@@ -22,16 +22,15 @@ spec:
   volumes:
     - name: nfs-data
       persistentVolumeClaim:
-        claimName: nfs-pvc
+        claimName: test-claim
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-pvc
+  name: test-claim
 spec:
-  storageClassName: nfs-storage # use storage class name
-  accessModes:
-    - ReadWriteOnce
+  storageClassName: nfs-retain # verify storage class
+  accessModes: ["ReadWriteMany"]
   resources:
     requests:
-      storage: 1G
+      storage: 100M

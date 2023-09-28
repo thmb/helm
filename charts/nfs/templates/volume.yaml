@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: {{ .Release.Name }}-volume
+  name: {{ .Release.Name }}
   labels:
-    app: nfs
+    app: server
 spec:
-  storageClassName: manual
+  storageClassName: manual # default storage
+  persistentVolumeReclaimPolicy: Retain
   accessModes: [ "ReadWriteMany" ]
   capacity:
     storage: 10G
   hostPath:
-    path: /opt/kubernetes/{{ .Release.Name }}/volume
+    path: /opt/kubernetes/{{ .Release.Name }}
     type: DirectoryOrCreate # create if not exist

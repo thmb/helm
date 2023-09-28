@@ -18,5 +18,9 @@ I'm running NFS inside my cluster using the gp2 StorageClass to create an EBS-ba
 # TODO: Improve this documentation to use either dynamic service name or static IP address
 
 ```console
-helm install --set service.address=XXX.XXX.XXX.XXX nfs .
+helm install --set address=XXX.XXX.XXX.XXX nfs .
 ```
+
+Test Client
+
+kubectl exec test-client -- touch /nfs/data/demo.txt
