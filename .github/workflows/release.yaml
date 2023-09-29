@@ -39,5 +39,5 @@ jobs:
               uses: helm/chart-releaser-action@v1.5.0
               env:
                   CR_PAGES_BRANCH: "main"
-                  CR_PAGES_INDEX_PATH: "docs"
+                  # CR_PAGES_INDEX_PATH: "docs"
                   CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

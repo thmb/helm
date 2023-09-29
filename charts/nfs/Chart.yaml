@@ -1,10 +1,11 @@
 apiVersion: v2
 name: nfs
 type: application
-version: 2023.09.28 # chart version
-appVersion: "latest" # bundle version
+version: 1.0.0 # chart version
+appVersion: "0.8" # bundle version
 description: Network File System
 icon: https://github.com/thmb/helm/blob/main/charts/nfs/icon.svg
 maintainers:
   - email: thiago@thau.tech
     name: Thiago Madureira Braga
+# https://github.com/GoogleCloudPlatform/nfs-server-docker
