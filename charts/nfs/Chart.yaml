@@ -1,8 +1,8 @@
 apiVersion: v2
 name: nfs
 type: application
-version: 1.0.0 # chart version
-appVersion: "0.8" # bundle version
+version: "1.3.4" # chart version
+appVersion: "1.3.4" # bundle version
 description: Network File System
 icon: https://github.com/thmb/helm/blob/main/charts/nfs/icon.svg
 maintainers:
