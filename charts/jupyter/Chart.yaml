@@ -1,7 +1,7 @@
 apiVersion: v2
 name: jupyter
 type: application
-version: 2023-10-02 # chart version
+version: "2023.10.02" # chart version
 appVersion: "2023-10-02" # bundle version
 description: PySpark Jupyter Notebook
 icon: https://github.com/thmb/helm/blob/main/charts/jupyter/icon.svg
