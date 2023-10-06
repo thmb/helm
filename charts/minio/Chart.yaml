@@ -1,7 +1,7 @@
 apiVersion: v2
 name: minio
 type: application
-version: "RELEASE.2023-09-30T07-02-29Z" # chart version
+version: RELEASE.2023-09-30T07-02-29Z # chart version
 appVersion: "RELEASE.2023-09-30T07-02-29Z" # bundle version
 description: MinIO Object Storage
 icon: https://github.com/thmb/helm/blob/main/charts/minio/icon.svg
