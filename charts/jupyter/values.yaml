@@ -3,5 +3,5 @@ storage: standard # default class
 auth:
   token: secret
 host:
-  name: jupyter.minikube
+  name: jupyter.local
   path: /

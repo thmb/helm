@@ -4,5 +4,5 @@ auth:
   user: user
   password: Pa$$w0rD
 host:
-  name: minio.minikube
+  name: minio.local
   path: /

@@ -15,4 +15,15 @@ spec:
           service:
             name: {{ .Release.Name }}-admin
             port:
-              number: 80
+              number: {{ .Values.admin.host.port }}
+  # Comment below lines to avoid external connection to database
+  - host: {{ .Values.database.host.name }}
+    http:
+      paths:
+      - path: {{ .Values.database.host.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Release.Name }}-database
+            port:
+              number: {{ .Values.database.host.port }}

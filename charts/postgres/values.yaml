@@ -5,7 +5,8 @@ admin:
     email: user@email.com
     password: secret
   host:
-    name: postgres.minikube
+    name: postgres.local
+    port: 80
     path: /
   log:
     level: 10
@@ -16,5 +17,9 @@ database:
   auth:
     user: user
     password: secret
+  host:
+    name: postgres.local
+    port: 5432
+    path: /
   default:
     name: test
