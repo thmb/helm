@@ -1,4 +1,4 @@
-image: jupyter/pyspark-notebook:2023-10-02
+image: jupyter/pyspark-notebook:2023-10-16
 storage: standard # default class
 auth:
   token: secret
