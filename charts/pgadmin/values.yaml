@@ -1,0 +1,11 @@
+image: dpage/pgadmin4:7.7
+storage: standard # default class
+auth:
+  email: admin@email.com
+  password: Pa$$w0rD
+host:
+  name: pgadmin.local
+  port: 80
+  path: /
+log:
+  level: 10

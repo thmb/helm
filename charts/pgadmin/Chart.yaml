@@ -1,0 +1,10 @@
+apiVersion: v2
+name: pgadmin
+type: application
+version: "7.7" # chart version
+appVersion: "7.7" # bundle version
+description: PgAdmin management tool for PostgreSQL
+icon: https://github.com/thmb/helm/blob/main/charts/pgadmin/icon.svg
+maintainers:
+  - email: thiago@thau.tech
+    name: Thiago Madureira Braga
