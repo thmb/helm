@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ .Release.Name }}
-data:
-  POSTGRES_DB: {{ .Values.database.default.name }}
-  PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: {{ .Values.admin.log.level | quote }}
