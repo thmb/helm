@@ -12,9 +12,8 @@ Improve Developer Experience
 
 Debian Bookworm?
 
-## Postgres + PgAdmin
+## PgAdmin
 
-uuid + postgis
 
 ## Others
 
