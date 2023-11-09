@@ -1,0 +1,63 @@
+apiVersion: v1
+entries:
+  jupyter:
+  - apiVersion: v2
+    appVersion: "2023-10-20"
+    created: "2023-11-09T19:44:47.915274532Z"
+    description: PySpark Jupyter Notebook
+    digest: 44dc6f5541f890e98cce3a09408947f315625449b2f04971d11ad5ddcbf7b237
+    icon: https://github.com/thmb/helm/blob/main/charts/jupyter/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/jupyter-2023.10.20/jupyter-2023.10.20.tgz
+    version: 2023.10.20
+  minio:
+  - apiVersion: v2
+    appVersion: RELEASE.2023-11-06T22-26-08Z
+    created: "2023-11-09T19:44:48.067255288Z"
+    description: MinIO Object Storage
+    digest: 8816836585f388a4a646e52faea910888799542be7ff16b3ddca7d9f93049be6
+    icon: https://github.com/thmb/helm/blob/main/charts/minio/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: minio
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/minio-2023.11.06/minio-2023.11.06.tgz
+    version: 2023.11.06
+  nfs:
+  - apiVersion: v2
+    appVersion: 1.3.4
+    created: "2023-11-09T19:44:48.224389043Z"
+    description: Network File System
+    digest: c63dffdff3bf33ba8d92b86596178a4d934ca69f81e37aa0c32a2fdf84583ced
+    icon: https://github.com/thmb/helm/blob/main/charts/nfs/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: nfs
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/nfs-1.3.4/nfs-1.3.4.tgz
+    version: 1.3.4
+  pgadmin:
+  - apiVersion: v2
+    appVersion: "7.7"
+    created: "2023-11-09T19:44:48.356964251Z"
+    description: PgAdmin management tool for PostgreSQL
+    digest: 2501ae271d97173f9124f1603926dd07865c05f69f4308163be0008f7264caf0
+    icon: https://github.com/thmb/helm/blob/main/charts/pgadmin/icon.svg
+    maintainers:
+    - email: thiago@thau.tech
+      name: Thiago Madureira Braga
+    name: pgadmin
+    type: application
+    urls:
+    - https://github.com/thmb/helm/releases/download/pgadmin-7.7/pgadmin-7.7.tgz
+    version: "7.7"
+generated: "2023-11-09T19:44:48.356980252Z"
